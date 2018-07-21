@@ -28,19 +28,26 @@ Masking::Masking(const Score_matrix &score_matrix)
 		mask_table_x_[i] = value_traits.mask_char;
 		mask_table_bit_[i] = (uint8_t)i | bit_mask;
 		for (unsigned j = 0; j < size; ++j)
-			if (i < value_traits.alphabet_size && j < value_traits.alphabet_size)
-				likelihoodRatioMatrix_[i][j] = exp(lambda * score_matrix(i, j));
+			if (i < value_traits.alphabet_size && j < value_traits.alphabet_size) {
+                likelihoodRatioMatrix_[i][j] = exp(lambda * score_matrix(i, j));
+                std::cout<<"likelihoodRatioMatrix = "<<likelihoodRatioMatrix_[i][j]<<std::endl;
+            }
 	}
 	std::copy(likelihoodRatioMatrix_, likelihoodRatioMatrix_ + size, probMatrixPointers_);
+    for(int i = 0; i < size; ++i){
+        for(int j = 0; j < size; ++j){
+            //std::cout<<"probabilitiematrix = "<<probMatrixPointers_[i][j]<<std::endl;
+        }
+    }
 	int firstGapCost = score_matrix.gap_extend() + score_matrix.gap_open();
 	firstGapProb_ = exp(-lambda * firstGapCost);
 	otherGapProb_ = exp(-lambda * score_matrix.gap_extend());
 	firstGapProb_ /= (1 - otherGapProb_);
 }
 
-void Masking::operator()(Letter *seq, size_t len) const
+void Masking::operator()(Letter *seq, size_t len, int maxCycleLength) const
 {
-	tantan::maskSequences((tantan::uchar*)seq, (tantan::uchar*)(seq + len), 50,
+	tantan::maskSequences((tantan::uchar*)seq, (tantan::uchar*)(seq + len), maxCycleLength,
 		(tantan::const_double_ptr*)probMatrixPointers_,
 		0.005, 0.05,
 		0.9,
@@ -48,9 +55,9 @@ void Masking::operator()(Letter *seq, size_t len) const
 		0.5, (const tantan::uchar*)mask_table_x_);
 }
 
-void Masking::mask_bit(Letter *seq, size_t len) const
+void Masking::mask_bit(Letter *seq, size_t len, int maxCycleLength) const
 {
-	tantan::maskSequences((tantan::uchar*)seq, (tantan::uchar*)(seq + len), 50,
+	tantan::maskSequences((tantan::uchar*)seq, (tantan::uchar*)(seq + len), maxCycleLength,
 		(tantan::const_double_ptr*)probMatrixPointers_,
 		0.005, 0.05,
 		0.9,

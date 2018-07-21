@@ -41,6 +41,7 @@ Config::Config(int argc, const char **argv)
 	parser.add_command("makedb", "Build DIAMOND database from a FASTA file")
 		.add_command("blastp", "Align amino acid query sequences against a protein reference database")
 		.add_command("blastx", "Align DNA query sequences against a protein reference database")
+			.add_command("blastn", "Align DNA query sequences against dna reference database")
 		.add_command("view", "View DIAMOND alignment archive (DAA) formatted file")
 		.add_command("help", "Produce help message")
 		.add_command("version", "Display version information")
@@ -114,7 +115,8 @@ Config::Config(int argc, const char **argv)
 
 	Options_group makedb("Makedb options");
 	makedb.add()
-		("in", 0, "input reference file in FASTA format", input_ref_file);
+		("in", 0, "input reference file in FASTA format", input_ref_file)
+		("db_type",0, "databasetype (nucl/amino)", db_type, string("amino"));
 
 	Options_group aligner("Aligner options");
 	aligner.add()
@@ -339,6 +341,14 @@ Config::Config(int argc, const char **argv)
 	verbose_stream << "Assertions enabled." << endl;
 #endif
 	set_option(threads_, tthread::thread::hardware_concurrency());
+	if(command == Config::makedb){
+		if(db_type == "nucl"){
+			matrix = "nucl";
+		}else if(db_type == "amino"){
+		}else{
+			throw std::runtime_error("dbtype not specified correctly, either nucl or amino");
+		}
+	}
 
 	switch (command) {
 	case Config::makedb:

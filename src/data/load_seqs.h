@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 inline size_t push_seq(Sequence_set &ss, Sequence_set** source_seqs, const vector<Letter> &seq, unsigned frame_mask)
 {
-	if (config.command == Config::blastp || config.command == Config::makedb || config.command == Config::random_seqs) {
+	if (config.command == Config::blastp || config.command == Config::makedb || config.command == Config::random_seqs || config.command == Config::blastn) {
 		ss.push_back(seq);
 		return seq.size();
 	}

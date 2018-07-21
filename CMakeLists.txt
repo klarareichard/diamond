@@ -44,6 +44,7 @@ add_executable(diamond src/run/main.cpp
   src/blast/sm_pam30.c
   src/blast/sm_pam70.c
   src/blast/sm_pam250.c
+  src/blast/sm_nucleotide_score_matrix.c
   src/data/queries.cpp
   src/data/reference.cpp
   src/data/seed_histogram.cpp

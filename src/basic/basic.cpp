@@ -47,6 +47,13 @@ Align_mode::Align_mode(unsigned mode) :
 {
 	sequence_type = amino_acid;
 	switch (mode) {
+
+	case blastn:
+		input_sequence_type = nucleotide;
+		query_contexts = 1;
+		query_translated = false;
+		query_len_factor = 1;
+		break;
 	case blastx:
 		input_sequence_type = nucleotide;
 		query_contexts = 6;

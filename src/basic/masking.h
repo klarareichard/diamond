@@ -31,8 +31,8 @@ using std::auto_ptr;
 struct Masking
 {
 	Masking(const Score_matrix &score_matrix);
-	void operator()(Letter *seq, size_t len) const;
-	void mask_bit(Letter *seq, size_t len) const;
+	void operator()(Letter *seq, size_t len, int maxCycleLength = 50) const;
+	void mask_bit(Letter *seq, size_t len, int maxCycleLength = 50) const;
 	void bit_to_hard_mask(Letter *seq, size_t len, size_t &n) const;
 	void remove_bit_mask(Letter *seq, size_t len) const;
 	static const Masking& get()

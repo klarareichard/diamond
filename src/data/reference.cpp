@@ -153,7 +153,13 @@ void make_db()
 		while ((timer.go("Loading sequences"), n = load_seqs(*db_file, format, &seqs, ids, 0, (size_t)(1e9), string())) > 0) {
 			if (config.masking == 1) {
 				timer.go("Masking sequences");
+				/*for(int i = 0; i < seqs->get_length(); ++i){
+					std::cout<<"seq = "<<(*seqs)[i] << std::endl;
+				}*/
 				mask_seqs(*seqs, Masking::get(), false);
+				/*for(int i = 0; i < seqs->get_length(); ++i){
+					std::cout<<"seq = "<<(*seqs)[i] << std::endl;
+				}*/
 			}
 			timer.go("Writing sequences");
 			for (size_t i = 0; i < n; ++i) {

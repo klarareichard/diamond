@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DIAMOND"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="clang"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="diamond">
+				<Option output="/Users/klara/diamond/mydiamond/cmake-build-debug/diamond" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/klara/diamond/mydiamond/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 diamond"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="diamond/fast">
+				<Option output="/Users/klara/diamond/mydiamond/cmake-build-debug/diamond" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/klara/diamond/mydiamond/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="clang"/>
+				<Compiler>
+					<Add directory="/Users/klara/diamond/mydiamond/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/9.1.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 diamond/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/klara/diamond/mydiamond/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/align/align.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/align/align.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/align/banded_swipe_pipeline.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/align/greedy_pipeline.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/align/query_mapper.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/align/query_mapper.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/align/swipe_pipeline.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/basic.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/config.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/config.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/hssp.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/masking.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/masking.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/score_matrix.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/basic/score_matrix.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/blast_filter.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/blast_filter.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/blast_seg.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/blast_seg.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_blosum45.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_blosum50.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_blosum62.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_blosum80.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_blosum90.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_nucleotide_score_matrix.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_pam250.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_pam30.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/blast/sm_pam70.c">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/frequent_seeds.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/frequent_seeds.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/queries.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/queries.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/ref_dictionary.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/ref_dictionary.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/reference.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/reference.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/seed_array.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/seed_array.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/seed_histogram.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/seed_histogram.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/seed_set.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/seed_set.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/sorted_list.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/sorted_list.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/taxon_list.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/taxon_list.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/taxonomy.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/taxonomy.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/taxonomy_nodes.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/data/taxonomy_nodes.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/banded_sw.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/comp_based_stats.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/diag_scores.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/greedy_align.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/needleman_wunsch.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/padded_banded_sw.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/swipe/banded_3frame_swipe.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/swipe/banded_swipe.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/swipe/swipe.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/swipe/swipe.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/dp/ungapped_align.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/extra/model_sim.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/extra/opt.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/extra/roc.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/lib/tantan/tantan.cc">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/lib/tantan/tantan.hh">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/blast_pairwise_format.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/blast_tab_format.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/daa_record.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/daa_record.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/join_blocks.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/output_format.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/output_format.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/output_sink.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/paf_format.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/sam_format.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/target_culling.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/target_culling.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/taxon_format.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/output/view.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/run/double_indexed.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/run/main.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/run/tools.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/run/tools.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/search/collision.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/search/collision.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/search/search.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/search/search.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/search/setup.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/search/stage0.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/search/stage2.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/Timer.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/Timer.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/algo/MurmurHash3.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/algo/MurmurHash3.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/command_line_parser.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/command_line_parser.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/compressed_stream.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/compressed_stream.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/deserializer.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/deserializer.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/file_sink.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/file_sink.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/file_source.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/file_source.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/input_file.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/input_file.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/input_stream_buffer.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/input_stream_buffer.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/output_file.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/output_file.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/output_stream_buffer.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/output_stream_buffer.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/serializer.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/serializer.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/temp_file.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/temp_file.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/text_input_file.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/io/text_input_file.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/memory/memory_pool.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/memory/memory_pool.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/seq_file_format.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/seq_file_format.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/simd.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/simd.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/tinythread.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/tinythread.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/util.cpp">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/src/util/util.h">
+			<Option target="diamond"/>
+		</Unit>
+		<Unit filename="/Users/klara/diamond/mydiamond/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

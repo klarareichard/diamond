@@ -110,6 +110,7 @@ extern NCBI_TABLES_EXPORT const SNCBIPackedScoreMatrix NCBISM_Blosum90;
 extern NCBI_TABLES_EXPORT const SNCBIPackedScoreMatrix NCBISM_Pam30;
 extern NCBI_TABLES_EXPORT const SNCBIPackedScoreMatrix NCBISM_Pam70;
 extern NCBI_TABLES_EXPORT const SNCBIPackedScoreMatrix NCBISM_Pam250;
+extern NCBI_TABLES_EXPORT const SNCBIPackedScoreMatrix NucleotideScoreMatrix;
 
 extern NCBI_TABLES_EXPORT
 const SNCBIPackedScoreMatrix* NCBISM_GetStandardMatrix(const char* name);

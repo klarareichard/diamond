@@ -436,8 +436,12 @@ void maskProbableLetters(uchar *seqBeg,
                          double minMaskProb,
                          const uchar *maskTable) {
   while (seqBeg < seqEnd) {
-    if (*probabilities >= minMaskProb)
+    //std::cout<<"minMaskProb = "<<minMaskProb<<std::endl;
+    //std::cout<<"prob = "<<*probabilities<<std::endl;
+    if (*probabilities >= minMaskProb) {
+      std::cout<<"masking"<<std::endl;
       *seqBeg = maskTable[*seqBeg];
+    }
     ++probabilities;
     ++seqBeg;
   }

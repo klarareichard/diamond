@@ -159,6 +159,60 @@ static array_of_8 pam70_values[PAM70_VALUES_MAX] = {
 	{ 9, 1, (double)INT2_MAX, 0.270, 0.060, 0.28, 0.97, -14, 0.585186, 11.360800, 12.636700 },
 }; /**< Supported values (gap-existence, extension, etc.) for PAM70. */
 
+#define NUCL_VALUES_MAX 9
+static array_of_8 nucleotide_values[NUCL_VALUES_MAX] = {
+	{ (double)INT2_MAX, (double)INT2_MAX, (double)INT2_MAX, 0.2291, 0.0924, 0.2514, 0.9113, -5.7, 0.641318, 9.611060, 9.611060 },
+};
+
+static const array_of_8 blastn_values_1_5[] = {
+        { 0, 0, 1.39, 0.747, 1.38, 1.00,  0, 100 },
+        { 3, 3, 1.39, 0.747, 1.38, 1.00,  0, 100 }
+};
+
+/** Karlin-Altschul parameter values for substitution scores 1 and -4. */
+static const array_of_8 blastn_values_1_4[] = {
+        { 0, 0, 1.383, 0.738, 1.36, 1.02,  0, 100 },
+        { 1, 2,  1.36,  0.67,  1.2,  1.1,  0,  98 },
+        { 0, 2,  1.26,  0.43, 0.90,  1.4, -1,  91 },
+        { 2, 1,  1.35,  0.61,  1.1,  1.2, -1,  98 },
+        { 1, 1,  1.22,  0.35, 0.72,  1.7, -3,  88 }
+};
+
+/** Karlin-Altschul parameter values for substitution scores 2 and -7.
+ * These parameters can only be applied to even scores. Any odd score must be
+ * rounded down to the nearest even number before calculating the e-value.
+ */
+static const array_of_8 blastn_values_2_7[] = {
+        { 0, 0,  0.69, 0.73, 1.34, 0.515,  0, 100 },
+        { 2, 4,  0.68, 0.67,  1.2,  0.55,  0,  99 },
+        { 0, 4,  0.63, 0.43, 0.90,   0.7, -1,  91 },
+        { 4, 2, 0.675, 0.62,  1.1,   0.6, -1,  98 },
+        { 2, 2,  0.61, 0.35, 0.72,   1.7, -3,  88 }
+};
+
+/** Karlin-Altschul parameter values for substitution scores 1 and -3. */
+static const array_of_8 blastn_values_1_3[] = {
+        { 0, 0, 1.374, 0.711, 1.31, 1.05,  0, 100 },
+        { 2, 2,  1.37,  0.70,  1.2,  1.1,  0,  99 },
+        { 1, 2,  1.35,  0.64,  1.1,  1.2, -1,  98 },
+        { 0, 2,  1.25,  0.42, 0.83,  1.5, -2,  91 },
+        { 2, 1,  1.34,  0.60,  1.1,  1.2, -1,  97 },
+        { 1, 1,  1.21,  0.34, 0.71,  1.7, -2,  88 }
+};
+
+static const array_of_8 blastn_values_2_3[] = {
+        { 0, 0,  0.55, 0.21, 0.46,  1.2, -5, 87 },
+        { 4, 4,  0.63, 0.42, 0.84, 0.75, -2, 99 },
+        { 2, 4, 0.615, 0.37, 0.72, 0.85, -3, 97 },
+        { 0, 4,  0.55, 0.21, 0.46,  1.2, -5, 87 },
+        { 3, 3, 0.615, 0.37, 0.68,  0.9, -3, 97 },
+        { 6, 2,  0.63, 0.42, 0.84, 0.75, -2, 99 },
+        { 5, 2, 0.625, 0.41, 0.78,  0.8, -2, 99 },
+        { 4, 2,  0.61, 0.35, 0.68,  0.9, -3, 96 },
+        { 2, 2, 0.515, 0.14, 0.33, 1.55, -9, 81 }
+};
+
+
 struct Matrix_info
 {
 	const char *name;
@@ -178,14 +232,19 @@ struct Matrix_info
 
 	const double* get_constants(int gap_open, int gap_extend) const
 	{
-		for (unsigned i = 0; i < count; ++i)
-			if (constants[i][0] == gap_open && constants[i][1] == gap_extend)
-				return constants[i];
+        std::cout<<"real gap open = "<< gap_open << std::endl;
+        std::cout<<"real gap extend = "<< gap_extend << std::endl;
+		for (unsigned i = 0; i < count; ++i) {
+            std::cout<<"gap open = " << constants[i][0] << std::endl;
+            std::cout<<"gap extend = "<< constants[i][1] << std::endl;
+            if (constants[i][0] == gap_open && constants[i][1] == gap_extend)
+                return constants[i];
+        }
 		throw std::runtime_error("Invalid gap open and/or gap extend scores.");
 		return 0;
 	}
 
-	static const Matrix_info matrices[8];
+	static const Matrix_info matrices[9];
 };
 
 const Matrix_info Matrix_info::matrices[] = {
@@ -196,7 +255,8 @@ const Matrix_info Matrix_info::matrices[] = {
 	{ "BLOSUM90", blosum90_values, (const char*)NCBISM_Blosum90.scores, BLOSUM90_VALUES_MAX, 10, 1 },
 	{ "PAM70", pam70_values, (const char*)NCBISM_Pam70.scores, PAM70_VALUES_MAX, 10, 1 },
 	{ "PAM250", pam250_values, (const char*)NCBISM_Pam250.scores, PAM250_VALUES_MAX, 14, 2 },
-	{ "PAM30", pam30_values, (const char*)NCBISM_Pam30.scores, PAM30_VALUES_MAX, 9, 1 }
+	{ "PAM30", pam30_values, (const char*)NCBISM_Pam30.scores, PAM30_VALUES_MAX, 9, 1 },
+	{ "NUCL", blastn_values_2_3, (const char*)NucleotideScoreMatrix.scores,NUCL_VALUES_MAX, 5, 2}
 };
 
 Score_matrix::Score_matrix(const string & matrix, int gap_open, int gap_extend, int frameshift, uint64_t db_letters):
