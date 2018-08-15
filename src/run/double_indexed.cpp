@@ -337,7 +337,7 @@ void master_thread(DatabaseFile &db_file, Timer &total_timer, Metadata &metadata
 	statistics.print();
 }
 
-void master_thread_di()
+void  master_thread_di()
 {
 	Timer timer2;
 	timer2.start();

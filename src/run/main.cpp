@@ -59,6 +59,7 @@ int main(int ac, const char* av[])
 			break;
 		case Config::blastp:
 		case Config::blastx:
+		case Config::blastn:
 			master_thread_di();
 			break;
 		case Config::view:

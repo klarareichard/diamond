@@ -24,6 +24,11 @@ const uint8_t Masking::bit_mask = 128;
 Masking::Masking(const Score_matrix &score_matrix)
 {
 	const double lambda = score_matrix.lambda(); // 0.324032
+    std::cout<<"lambda = "<<score_matrix.lambda();
+    std::cout<<"size = "<< size << std::endl;
+    std::cout<<"alphabet_size = "<< value_traits.alphabet_size << std::endl;
+    //std::cout<<"value traits = "<< value_traits << std::endl;
+
 	for (unsigned i = 0; i < size; ++i) {
 		mask_table_x_[i] = value_traits.mask_char;
 		mask_table_bit_[i] = (uint8_t)i | bit_mask;
@@ -36,8 +41,11 @@ Masking::Masking(const Score_matrix &score_matrix)
 	std::copy(likelihoodRatioMatrix_, likelihoodRatioMatrix_ + size, probMatrixPointers_);
     for(int i = 0; i < size; ++i){
         for(int j = 0; j < size; ++j){
-            //std::cout<<"probabilitiematrix = "<<probMatrixPointers_[i][j]<<std::endl;
+            if (i < value_traits.alphabet_size && j < value_traits.alphabet_size) {
+                std::cout << "probabilityMatrix = " << probMatrixPointers_[i][j];
+            }
         }
+		std::cout<< std::endl;
     }
 	int firstGapCost = score_matrix.gap_extend() + score_matrix.gap_open();
 	firstGapProb_ = exp(-lambda * firstGapCost);

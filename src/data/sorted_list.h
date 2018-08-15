@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "../basic/packed_loc.h"
 #include "../util/system.h"
 #include "../util/algo/hash_join.h"
+#include <iostream>
 
 #pragma pack(1)
 

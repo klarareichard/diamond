@@ -23,7 +23,8 @@ endif()
 find_package(ZLIB REQUIRED)
 find_package(Threads REQUIRED)
 
-set(CMAKE_BUILD_TYPE Release)
+#set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-uninitialized -Wno-deprecated-declarations -Wno-ignored-attributes -Wno-unused-variable")
 
 include_directories(
@@ -45,6 +46,7 @@ add_executable(diamond src/run/main.cpp
   src/blast/sm_pam70.c
   src/blast/sm_pam250.c
   src/blast/sm_nucleotide_score_matrix.c
+  src/blast/sm_masking_score_matrix.c
   src/data/queries.cpp
   src/data/reference.cpp
   src/data/seed_histogram.cpp

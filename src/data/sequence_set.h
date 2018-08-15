@@ -209,9 +209,11 @@ private:
 			size_t j = 0;
 			while (it.good()) {
 				if (it.get(key))
-					if (filter->contains(key, 0))
+					if (filter->contains(key, 0)) {
 						if ((*f)(key, position(i, j), 0) == false)
 							return;
+					}
+
 				++j;
 			}
 		}
@@ -238,6 +240,9 @@ private:
 				switch (b) {
 				case 4:
 					seqs->enum_seeds_contiguous<_f, Contiguous_seed_iterator<6, 4>, _filter>(f, begin, end, filter);
+					break;
+				case 2:
+					seqs->enum_seeds_contiguous<_f, Contiguous_seed_iterator<6, 2>, _filter>(f, begin, end, filter);
 					break;
 				default:
 					throw std::runtime_error(errmsg);

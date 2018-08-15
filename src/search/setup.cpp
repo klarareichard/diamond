@@ -36,7 +36,11 @@ void setup_search_cont()
 	}
 	else {
 		index_mode = 10;
-		Reduction::reduction = Reduction("KR EQ D N C G H F Y IV LM W P S T A");
+		if(config.db_type != "nucl")
+			Reduction::reduction = Reduction("KR EQ D N C G H F Y IV LM W P S T A");
+        else{
+            Reduction::reduction = Reduction("A C G T");
+        }
 	}
 	::shapes = shape_config(index_mode, 1, vector<string>());
 }
@@ -70,7 +74,11 @@ void setup_search()
 			Config::set_option(config.index_mode, 8u);
 			Config::set_option(config.freq_sd, 50.0);
 		}
-		Reduction::reduction = Reduction("A KR EDNQ C G H ILVM FYW P ST");
+		if(config.command == Config::blastn){
+			Reduction::reduction = Reduction(" A C G T");
+		}else {
+			Reduction::reduction = Reduction("A KR EDNQ C G H ILVM FYW P ST");
+		}
 		::shapes = shape_config(config.index_mode, config.shapes, config.shape_mask);
 	}
 	else {
@@ -101,39 +109,78 @@ void setup_search_params(pair<size_t, size_t> query_len_bounds, size_t chunk_db_
 	const double b = config.min_bit_score == 0 ? score_matrix.bitscore(config.max_evalue, (unsigned)query_len_bounds.first) : config.min_bit_score;
 
 	if (config.mode_very_sensitive) {
-		Reduction::reduction = Reduction("A KR EDNQ C G H ILVM FYW P ST"); // murphy.10
-		Config::set_option(config.index_mode, 4u);
-		::shapes = shape_config(config.index_mode, config.shapes, config.shape_mask);
-		config.seed_anchor = std::min(::shapes[0].length_ - 1, 8u);
-		Config::set_option(config.min_identities, 9u);
-		Config::set_option(config.min_ungapped_score, 19.0);
-		Config::set_option(config.window, 60u);
-		Config::set_option(config.hit_band, 8);
-		Config::set_option(config.min_hit_score, 23.0);
+		if(config.command != Config::blastn){
+			Reduction::reduction = Reduction("A KR EDNQ C G H ILVM FYW P ST"); // murphy.10
+			Config::set_option(config.index_mode, 4u);
+			::shapes = shape_config(config.index_mode, config.shapes, config.shape_mask);
+			config.seed_anchor = std::min(::shapes[0].length_ - 1, 8u);
+			Config::set_option(config.min_identities, 9u);
+			Config::set_option(config.min_ungapped_score, 19.0);
+			Config::set_option(config.window, 60u);
+			Config::set_option(config.hit_band, 8);
+			Config::set_option(config.min_hit_score, 23.0);
+		}else{
+			Reduction::reduction = Reduction("A C G T");
+			Config::set_option(config.index_mode, 4u);
+			::shapes = shape_config(config.index_mode, config.shapes, config.shape_mask);
+			config.seed_anchor = std::min(::shapes[0].length_ - 1, 8u);
+			Config::set_option(config.min_identities, 9u);
+			Config::set_option(config.min_ungapped_score, 6.0);
+			Config::set_option(config.window, 60u);
+			Config::set_option(config.hit_band, 8);
+			Config::set_option(config.min_hit_score, 8.0);
+		}
+		std::cout<<"min_identities = "<< config.min_identities << std::endl;
+		std::cout<<"min_ungapped_score = "<< config.min_ungapped_score << std::endl;
+		std::cout<<"min_hit_score = "<< config.min_hit_score << std::endl;
 	}
 	else {
 
-		Config::set_option(config.min_identities, 11u);
-		if (query_len_bounds.second <= 40) {
-			//Config::set_option(config.min_identities, 10u);
-			Config::set_option(config.min_ungapped_score, std::min(27.0, b));
-		}
-		else {
-			//Config::set_option(config.min_identities, 9u);
-			Config::set_option(config.min_ungapped_score, std::min(23.0, b));
-		}
+		if(config.command != Config::blastn) {
+			Config::set_option(config.min_identities, 11u);
+			if (query_len_bounds.second <= 40) {
+				//Config::set_option(config.min_identities, 10u);
+				Config::set_option(config.min_ungapped_score, std::min(27.0, b));
+			} else {
+				//Config::set_option(config.min_identities, 9u);
+				Config::set_option(config.min_ungapped_score, std::min(23.0, b));
+			}
 
-		if (query_len_bounds.second <= 80) {
-			const int band = config.read_padding(query_len_bounds.second);
-			Config::set_option(config.window, (unsigned)(query_len_bounds.second + band));
-			Config::set_option(config.hit_band, band);
-			Config::set_option(config.min_hit_score, b);
+			if (query_len_bounds.second <= 80) {
+				const int band = config.read_padding(query_len_bounds.second);
+				Config::set_option(config.window, (unsigned) (query_len_bounds.second + band));
+				Config::set_option(config.hit_band, band);
+				Config::set_option(config.min_hit_score, b);
+			} else {
+				Config::set_option(config.window, 40u);
+				Config::set_option(config.hit_band, 5);
+				Config::set_option(config.min_hit_score, std::min(29.0, b));
+			}
+		}else{
+			Config::set_option(config.min_identities, 9u);
+			if (query_len_bounds.second <= 40) {
+				//Config::set_option(config.min_identities, 10u);
+				Config::set_option(config.min_ungapped_score, std::min(9.0, b));
+			} else {
+				//Config::set_option(config.min_identities, 9u);
+				Config::set_option(config.min_ungapped_score, std::min(7.0, b));
+			}
+
+			if (query_len_bounds.second <= 80) {
+				const int band = config.read_padding(query_len_bounds.second);
+				Config::set_option(config.window, (unsigned) (query_len_bounds.second + band));
+				Config::set_option(config.hit_band, band);
+				Config::set_option(config.min_hit_score, b);
+			} else {
+				Config::set_option(config.window, 40u);
+				Config::set_option(config.hit_band, 5);
+				Config::set_option(config.min_hit_score, std::min(13.0, b));
+			}
+
 		}
-		else {
-			Config::set_option(config.window, 40u);
-			Config::set_option(config.hit_band, 5);
-			Config::set_option(config.min_hit_score, std::min(29.0, b));
-		}
+		std::cout<<"min_identities = "<< config.min_identities << std::endl;
+		std::cout<<"min_ungapped_score = "<< config.min_ungapped_score << std::endl;
+		std::cout<<"min_hit_score = "<< config.min_hit_score << std::endl;
 	}
 
 	config.min_ungapped_raw_score = score_matrix.rawscore(config.min_ungapped_score);

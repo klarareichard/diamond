@@ -26,9 +26,37 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 inline size_t push_seq(Sequence_set &ss, Sequence_set** source_seqs, const vector<Letter> &seq, unsigned frame_mask)
 {
-	if (config.command == Config::blastp || config.command == Config::makedb || config.command == Config::random_seqs || config.command == Config::blastn) {
+	if (config.command == Config::blastp || config.command == Config::makedb || config.command == Config::random_seqs) {
 		ss.push_back(seq);
+		std::cout<<"seq = ";
+		for(auto it(seq.begin()); it != seq.end(); ++it){
+			std::cout<< to_char(*it);
+		}
+		std::cout<<std::endl;
 		return seq.size();
+	} else if (config.command == Config::blastn){
+		(*source_seqs)->push_back(seq);
+		vector<Letter> nucleotide_versions[2];
+		auto reverseSeq = Translator::reverse(seq);
+		nucleotide_versions[0] = seq;
+		nucleotide_versions[1] = reverseSeq;
+		ss.push_back(seq);
+
+		std::cout<<"seq = ";
+		for(auto it(seq.begin()); it != seq.end(); ++it){
+			std::cout<< to_char(*it);
+		}
+		std::cout<<std::endl;
+
+		ss.push_back(reverseSeq);
+
+		std::cout<<"reverseSeq = ";
+		for(auto it(reverseSeq.begin()); it != reverseSeq.end(); ++it){
+			std::cout<< to_char(*it);
+		}
+		std::cout<<std::endl;
+
+		return seq.size() + reverseSeq.size();
 	}
 	else {
 		(*source_seqs)->push_back(seq);
@@ -73,6 +101,14 @@ inline size_t load_seqs(TextInputFile &file,
 		frame_mask = (1 << 3) - 1;
 	else if (config.query_strands == "minus")
 		frame_mask = ((1 << 3) - 1) << 3;
+
+	if(config.command == Config::blastn){
+		frame_mask = (1 << 2) - 1;
+		if(config.query_strands == "plus")
+			frame_mask = (1 << 1) - 1;
+		else if (config.query_strands == "minus")
+			frame_mask = ((1 << 1) - 1) << 1;
+	}
 
 	while (letters < max_letters && format.get_seq(id, seq, file)) {
 		if (seq.size() > 0 && (filter.empty() || id2.assign(id.data(), id.data() + id.size()).find(filter, 0) != string::npos)) {

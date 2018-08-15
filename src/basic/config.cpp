@@ -38,10 +38,10 @@ Config config;
 Config::Config(int argc, const char **argv)
 {
 	Command_line_parser parser;
+	//parser.add_command("blastn", "Align DNA query sequences against a protein reference database");
 	parser.add_command("makedb", "Build DIAMOND database from a FASTA file")
 		.add_command("blastp", "Align amino acid query sequences against a protein reference database")
 		.add_command("blastx", "Align DNA query sequences against a protein reference database")
-			.add_command("blastn", "Align DNA query sequences against dna reference database")
 		.add_command("view", "View DIAMOND alignment archive (DAA) formatted file")
 		.add_command("help", "Produce help message")
 		.add_command("version", "Display version information")
@@ -64,7 +64,8 @@ Config::Config(int argc, const char **argv)
 		.add_command("db-annot-stats", "")
 		.add_command("read-sim", "")
 		.add_command("info", "")
-		.add_command("seed-stat", "");
+		.add_command("seed-stat", "")
+			.add_command("blastn", "Align DNA query sequences against a protein reference database");
 
 	Options_group general("General options");
 	general.add()
@@ -263,6 +264,7 @@ Config::Config(int argc, const char **argv)
 		break;
 	case Config::blastp:
 	case Config::blastx:
+	case Config::blastn:
 		if (database == "")
 			throw std::runtime_error("Missing parameter: database file (--db/-d)");
 		if (daa_file.length() > 0) {
@@ -301,7 +303,7 @@ Config::Config(int argc, const char **argv)
 		verbosity = 0;
 	else if (verbose)
 		verbosity = 2;
-	else if (((command == Config::view || command == blastx || command == blastp) && output_file == "")
+	else if (((command == Config::view || command == blastx || command == blastp || command == blastn) && output_file == "")
 		|| command == Config::version || command == getseq || command == fastq2fasta)
 		verbosity = 0;
 	else
@@ -341,13 +343,14 @@ Config::Config(int argc, const char **argv)
 	verbose_stream << "Assertions enabled." << endl;
 #endif
 	set_option(threads_, tthread::thread::hardware_concurrency());
-	if(command == Config::makedb){
-		if(db_type == "nucl"){
-			matrix = "nucl";
-		}else if(db_type == "amino"){
-		}else{
-			throw std::runtime_error("dbtype not specified correctly, either nucl or amino");
-		}
+	if(db_type == "nucl"){
+		matrix = "nucl";
+		Value_traits value_traitsn(nucleotide_traits);
+		value_traits = value_traitsn;
+		input_value_traits = value_traitsn;
+	}else if(db_type == "amino"){
+	}else{
+		throw std::runtime_error("dbtype not specified correctly, either nucl or amino");
 	}
 
 	switch (command) {
@@ -363,11 +366,13 @@ Config::Config(int argc, const char **argv)
 	switch (command) {
 	case Config::blastp:
 	case Config::blastx:
+	case Config::blastn:
 	case Config::benchmark:
 	case Config::model_sim:
 	case Config::opt:
 	case Config::mask:
 	case Config::makedb:
+	std::cout<<"make db "<<std::endl;
 		if (frame_shift != 0 && command == Config::blastp)
 			throw std::runtime_error("Frameshift alignments are only supported for translated searches.");
 		if (query_range_culling && frame_shift == 0)
@@ -382,23 +387,34 @@ Config::Config(int argc, const char **argv)
 			score_matrix = Score_matrix(matrix_file, lambda, K, gap_open, gap_extend);
 		}
 		message_stream << "Scoring parameters: " << score_matrix << endl;
-		if (masking == 1)
-			Masking::instance = auto_ptr<Masking>(new Masking(score_matrix));
+		if (masking == 1) {
+            if(command == Config::makedb) {
+                if (db_type == "nucl") {
+                    matrix = "masking";
+                    score_matrix = Score_matrix(to_upper_case(matrix), gap_open, gap_extend, frame_shift);
+
+                }
+            }
+            Masking::instance = auto_ptr<Masking>(new Masking(score_matrix));
+        }
 	}
 
 	if (command == Config::blastp || command == Config::blastx || command == Config::benchmark || command == Config::model_sim || command == Config::opt
-		|| command == Config::mask) {
+		|| command == Config::mask || command == Config::blastn) {
 		if (tmpdir == "")
 			tmpdir = extract_dir(output_file);
 		
 		init_cbs();
 		raw_ungapped_xdrop = score_matrix.rawscore(ungapped_xdrop);
+		std::cout<<"raw_ungapped_xdrop = "<< raw_ungapped_xdrop << std::endl;
 		simd_messages();
 	}
 
-	Translator::init(query_gencode);
+    if(db_type != "nucl") {
+        Translator::init(query_gencode);
+    }
 
-	if (command == blastx)
+	if (command == blastx || command == blastn)
 		input_value_traits = nucleotide_traits;
 
 	if (command == help)

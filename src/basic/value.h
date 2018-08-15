@@ -42,6 +42,7 @@ struct invalid_sequence_char_exception : public std::exception
 	{ }
 	virtual const char* what() const throw()
 	{
+
 		return msg.c_str();
 	}
 };

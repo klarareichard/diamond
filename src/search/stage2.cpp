@@ -53,9 +53,9 @@ void search_query_offset(Loc q,
 
 		unsigned delta, len;
 		int score;
-		if ((score = stage2_ungapped(query, subject, sid, delta, len)) < config.min_ungapped_raw_score)
+		if ((score = stage2_ungapped(query, subject, sid, delta, len)) < config.min_ungapped_raw_score) {
 			continue;
-
+		}
 		stats.inc(Statistics::TENTATIVE_MATCHES2);
 		/*if (filterl(query, subject) < 20)
 			continue;*/

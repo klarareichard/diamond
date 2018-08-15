@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ****/
 
 #include "dp.h"
-
+#include "../basic/config.h"
 double background_scores[20];
 const double background_freq[] = { 0.0844581,0.0581912,0.0421072,0.0546748,0.0146359,0.040118,0.0621211,0.0669379,0.0225159,0.0547866,0.0957934,0.0523275,0.0218629,0.038769,0.0505311,
 0.0760908,0.0573267,0.0127314,0.0295317,0.0644889 };
@@ -28,6 +28,9 @@ void init_cbs()
 		background_scores[i] = 0;
 		for (unsigned j = 0; j < 20; ++j)
 			background_scores[i] += background_freq[j] * score_matrix(i, j);
+	}
+	if(config.command == Config::blastn){
+
 	}
 }
 

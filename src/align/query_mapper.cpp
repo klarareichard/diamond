@@ -214,8 +214,12 @@ bool QueryMapper::generate_output(TextBuffer &buffer, Statistics &stat, const Me
 		
 		hit_hsps = 0;
 		for (list<Hsp>::iterator j = targets[i].hsps.begin(); j != targets[i].hsps.end(); ++j) {
-			if (config.max_hsps > 0 && hit_hsps >= config.max_hsps)
+			if (config.max_hsps > 0 && hit_hsps >= config.max_hsps) {
+				std::cout<<"broke because too many hps "<<std::endl;
+				std::cout<<"hit_hsps = "<< hit_hsps << std::endl;
+				std::cout<<"max_hsps = "<< config.max_hsps << std::endl;
 				break;
+			}
 
 			if (blocked_processing) {
 				if (n_hsp == 0)

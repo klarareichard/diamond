@@ -141,8 +141,9 @@ private:
 		{
 			const unsigned n = value_traits.alphabet_size;
 			for (unsigned i = 0; i < 32; ++i)
-				for (unsigned j = 0; j < 32; ++j)
-					data[i * 32 + j] = i < n && j < n ? (_t)(scores[i*n + j] + (int)bias) : -(std::numeric_limits<_t>::max() / 2);
+				for (unsigned j = 0; j < 32; ++j) {
+					data[i * 32 + j] = i < n && j < n ? (_t)(scores[i * n + j] + (int) bias) : -(std::numeric_limits<_t>::max() / 2);
+				}
 		}
 #ifdef _MSC_VER
 		__declspec(align(16)) _t data[32 * 32];

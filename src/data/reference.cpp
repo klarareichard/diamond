@@ -157,9 +157,9 @@ void make_db()
 					std::cout<<"seq = "<<(*seqs)[i] << std::endl;
 				}*/
 				mask_seqs(*seqs, Masking::get(), false);
-				/*for(int i = 0; i < seqs->get_length(); ++i){
+				for(int i = 0; i < seqs->get_length(); ++i){
 					std::cout<<"seq = "<<(*seqs)[i] << std::endl;
-				}*/
+				}
 			}
 			timer.go("Writing sequences");
 			for (size_t i = 0; i < n; ++i) {

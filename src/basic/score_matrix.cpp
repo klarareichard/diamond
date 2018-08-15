@@ -212,6 +212,13 @@ static const array_of_8 blastn_values_2_3[] = {
         { 2, 2, 0.515, 0.14, 0.33, 1.55, -9, 81 }
 };
 
+/*These values are only there for masking of nucleotide sequences,
+ * do not use them in general for scoring matrices */
+#define MASK_VALUES_MAX 1
+static const array_of_8 blastn_values_masking[] = {
+        {1, 1, 1.09861, 1.09861, 0.46, 1.2, -5, 87},
+};
+
 
 struct Matrix_info
 {
@@ -244,7 +251,7 @@ struct Matrix_info
 		return 0;
 	}
 
-	static const Matrix_info matrices[9];
+	static const Matrix_info matrices[10];
 };
 
 const Matrix_info Matrix_info::matrices[] = {
@@ -256,7 +263,8 @@ const Matrix_info Matrix_info::matrices[] = {
 	{ "PAM70", pam70_values, (const char*)NCBISM_Pam70.scores, PAM70_VALUES_MAX, 10, 1 },
 	{ "PAM250", pam250_values, (const char*)NCBISM_Pam250.scores, PAM250_VALUES_MAX, 14, 2 },
 	{ "PAM30", pam30_values, (const char*)NCBISM_Pam30.scores, PAM30_VALUES_MAX, 9, 1 },
-	{ "NUCL", blastn_values_2_3, (const char*)NucleotideScoreMatrix.scores,NUCL_VALUES_MAX, 5, 2}
+	{ "NUCL", blastn_values_2_3, (const char*)NucleotideScoreMatrix.scores,NUCL_VALUES_MAX, 5, 2},
+    { "MASKING", blastn_values_masking, (const char*) MaskingScoreMatrix.scores, MASK_VALUES_MAX, 1, 1 }
 };
 
 Score_matrix::Score_matrix(const string & matrix, int gap_open, int gap_extend, int frameshift, uint64_t db_letters):
